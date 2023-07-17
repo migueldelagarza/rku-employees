@@ -18,6 +18,17 @@ exports.getEmployees = () => {
 };
 
 /**
+ * Obtiene un empleado por su número
+ * @param {string} accountNumber 
+ * @returns Promise
+ */
+exports.getEmployeeByAccount = (accountNumber) => {
+  return callProcedure('CALL EMPOLYACCCON(?)', accountNumber)
+    .then(result => result[0][0])
+    .catch(error => {throw error})
+}
+
+/**
  * Guarda nuevo empleado
  * @param {name: string, account: string, role: string} employee 
  * @returns Promise
