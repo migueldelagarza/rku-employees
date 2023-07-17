@@ -12,6 +12,11 @@ exports.getEmployees = () => {
   return dataAccess.getEmployees();
 }
 
+/**
+ * Guarda nuevo empleado
+ * @param {name: string, account: string, role: string} employee 
+ * @returns 
+ */
 exports.addEmployee = (employee) => {
   return dataAccess.addEmployee(employee)
     .catch(error => { throw error });

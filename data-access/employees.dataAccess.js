@@ -17,6 +17,11 @@ exports.getEmployees = () => {
     .catch(error => error)
 };
 
+/**
+ * Guarda nuevo empleado
+ * @param {name: string, account: string, role: string} employee 
+ * @returns Promise
+ */
 exports.addEmployee = (employee) => {
   const { name, account, role } = employee;
   return callProcedure('CALL EMPOLYCTE(?, ?, ?)', [name, account, role])

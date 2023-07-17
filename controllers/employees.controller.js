@@ -19,6 +19,11 @@ exports.getEmployees = async (_, res) => {
   }
 };
 
+/**
+ * Guardo nuevo empleado
+ * @param req petición
+ * @param res respuesta
+ */
 exports.addEmployee = async (req, res) => {
   console.log('Agregando nuevo usuario...');
   try {
