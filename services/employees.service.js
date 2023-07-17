@@ -13,6 +13,16 @@ exports.getEmployees = () => {
 }
 
 /**
+ * Obtiene un empleado por su número
+ * @param {string} accountNumber 
+ * @returns 
+ */
+exports.getEmployeeByAccount = (accountNumber) => {
+  return dataAccess.getEmployeeByAccount(accountNumber)
+    .catch(error => { throw error });
+}
+
+/**
  * Guarda nuevo empleado
  * @param {name: string, account: string, role: string} employee 
  * @returns 
