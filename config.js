@@ -4,5 +4,5 @@ exports.DB_CONFIG = {
   host: '',
   user: 'root',
   password: '123123',
-  database: 'rinku'
+  database: 'rinkudb'
 }
