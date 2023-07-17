@@ -11,3 +11,8 @@ const dataAccess = require('../data-access/employees.dataAccess');
 exports.getEmployees = () => {
   return dataAccess.getEmployees();
 }
+
+exports.addEmployee = (employee) => {
+  return dataAccess.addEmployee(employee)
+    .catch(error => { throw error });
+}
