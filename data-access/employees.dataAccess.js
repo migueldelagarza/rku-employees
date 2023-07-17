@@ -13,6 +13,16 @@ const callProcedure = promisify(connection.query).bind(connection);
  */
 exports.getEmployees = () => {
   return callProcedure('CALL EMPALLCON()')
-    .then( result => result[0])
-    .catch( error => error)
+    .then(result => result[0])
+    .catch(error => error)
 };
+
+exports.addEmployee = (employee) => {
+  const { name, account, role } = employee;
+  return callProcedure('CALL EMPOLYCTE(?, ?, ?)', [name, account, role])
+    .then(result => {
+      console.log('Usuario agregado');
+      return result;
+    })
+    .catch(error => { throw error })
+}
