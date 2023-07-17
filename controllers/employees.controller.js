@@ -18,3 +18,21 @@ exports.getEmployees = async (_, res) => {
     res.status(500).send('Error en la solicitud');
   }
 };
+
+exports.addEmployee = async (req, res) => {
+  console.log('Agregando nuevo usuario...');
+  try {
+    const employee = req.body;
+    _employes.addEmployee(employee)
+      .then(() => {
+        res.status(201).send('Empleado agregado')
+      })
+      .catch((error) => {
+      console.error('Error al escribir en base de datos', error);
+      res.status(400).send(error.sqlMessage);
+    });
+  } catch (error) {
+    console.error('Error al guardar empleado');
+    res.status(500).send('Error en servidor/solicitud');
+  }
+}
