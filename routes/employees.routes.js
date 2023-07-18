@@ -5,7 +5,13 @@ const router = require('express').Router();
 const employees = require('../controllers/employees.controller');
 
 /**
- * Ruta para consultar todos los empleados
+ * @swagger
+ * /employees:
+ *   get:
+ *     summary: Obtener todos los empleados
+ *     responses:
+ *       200:
+ *         description: OK
  */
 router.get('/employees', employees.getEmployees);
 
