@@ -82,9 +82,9 @@ router.post('/employees', employees.addEmployee);
  *                type: object
  *    responses:
  *     201:
- *       description: Empleado agregado
+ *       description: Se registraron entregas
  *     400:
- *       description: El número de empleado ya existe.
+ *       description: El número de empleado no existe.
  */
 router.post('/employees/deliveries', employees.addDelivery);
 
