@@ -17,6 +17,22 @@ router.get('/employees', employees.getEmployees);
 
 /**
  * Ruta para buscar un empleado por su número
+ * @swagger
+ * /employees/{accountNumber}:
+ *  get:
+ *    summary: Obtener un empleado por su número
+ *    parameters:
+ *      - name: accountNumber
+ *        in: path
+ *        required: true
+ *        description: número de empleado
+ *        schema:
+ *          type: string
+ *    responses:
+ *      200:
+ *        description: OK
+ *      404:
+ *        description: empleado no encontrado
  */
 router.get('/employees/:accountNumber', employees.getEmployeByAccount);
 
@@ -45,5 +61,31 @@ router.get('/employees/:accountNumber', employees.getEmployeByAccount);
  *       description: El número de empleado ya existe.
  */
 router.post('/employees', employees.addEmployee);
+
+/**
+ * Ruta para agregar un empleado nuevo
+ * @swagger
+ * /employees/deliveries:
+ *  post:
+ *    summary: Agregar entregas mensuales
+ *    consumes: [ "application/json" ]
+ *    requestBody:
+ *      content:
+ *        "application/json":
+ *          schema:
+ *            properties:
+ *              month:
+ *                type: string
+ *              deliveries:
+ *                type: number
+ *              employee:
+ *                type: object
+ *    responses:
+ *     201:
+ *       description: Empleado agregado
+ *     400:
+ *       description: El número de empleado ya existe.
+ */
+router.post('/employees/deliveries', employees.addDelivery);
 
 module.exports = router;

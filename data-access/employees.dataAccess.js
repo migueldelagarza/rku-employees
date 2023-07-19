@@ -25,7 +25,7 @@ exports.getEmployees = () => {
 exports.getEmployeeByAccount = (accountNumber) => {
   return callProcedure('CALL EMPOLYACCCON(?)', accountNumber)
     .then(result => result[0][0])
-    .catch(error => {throw error})
+    .catch(error => { throw error })
 }
 
 /**
@@ -41,4 +41,21 @@ exports.addEmployee = (employee) => {
       return result;
     })
     .catch(error => { throw error })
+}
+
+/**
+ * Registra entradas mensuales
+ * @param {object} employee 
+ * @param {string} month 
+ * @param {number} deliveries 
+ * @returns 
+ */
+exports.addDelivery = (employee, month, deliveries) => {
+  const { name, account, role } = employee
+  return callProcedure('CALL DVYOLYCTE(?, ?, ?, ?, ?)', [name, account, role, month, deliveries])
+    .then(result => {
+      console.log('Entregas registradas');
+      return result;
+    })
+    .catch(error => { throw error });
 }

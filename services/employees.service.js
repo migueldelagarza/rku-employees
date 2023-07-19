@@ -31,3 +31,15 @@ exports.addEmployee = (employee) => {
   return dataAccess.addEmployee(employee)
     .catch(error => { throw error });
 }
+
+/**
+ * Registra entregas mensuales
+ * @param {object} employee 
+ * @param {string} month 
+ * @param {number} deliveries 
+ * @returns {promise}
+ */
+exports.addDelivery = (employee, month, deliveries) => {
+  return dataAccess.addDelivery(employee, month, deliveries)
+    .catch(error => { throw error});
+}
