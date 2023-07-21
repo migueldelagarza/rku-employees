@@ -43,3 +43,8 @@ exports.addDelivery = (employee, month, deliveries) => {
   return dataAccess.addDelivery(employee, month, deliveries)
     .catch(error => { throw error});
 }
+
+exports.getDelivery = (account, month) => {
+  return dataAccess.getDelivery(account, month)
+    .catch(error => { throw error})
+}

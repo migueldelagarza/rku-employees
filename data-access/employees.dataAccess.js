@@ -59,3 +59,13 @@ exports.addDelivery = (employee, month, deliveries) => {
     })
     .catch(error => { throw error });
 }
+
+exports.getDelivery = (account, month) => {
+return callProcedure('CALL DVYOLYMNTCON(?, ?)', [account, month])
+  .then( result => {
+    return result[0][0];
+  })
+  .catch( error => {
+    throw error;
+  })
+}

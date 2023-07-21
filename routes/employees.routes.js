@@ -88,4 +88,5 @@ router.post('/employees', employees.addEmployee);
  */
 router.post('/employees/deliveries', employees.addDelivery);
 
+router.get('/employees/delivery/:account/:month', employees.getDelivery)
 module.exports = router;

@@ -86,3 +86,17 @@ exports.addDelivery = async (req, res) => {
     res.status(500).send('Error en servidor/solicitud');
   }
 }
+
+exports.getDelivery = (req, res) => {
+  try {
+    const {account, month} = req.params;
+    _employes.getDelivery(account, month)
+    .then( (result) => { res.status(200).send(result)})
+    .catch ( error => {
+      res.status(400).send(error.sqlMessage);
+    })
+  } catch (error) {
+    console.error('Error al guardar entregas');
+    res.status(500).send('Error en servidor/solicitud');
+  }
+}
